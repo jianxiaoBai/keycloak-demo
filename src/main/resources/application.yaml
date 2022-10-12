@@ -1,0 +1,17 @@
+keycloak:
+  resource: Resource-a
+  ssl-required: external
+  auth-server-url: http://localhost:8090
+  credentials:
+    secret: vM3gaoBXLv8vz4kLVrm3IoN8L63DamKe
+  realm: Realm-a
+  use-resource-role-mappings: true
+  securityConstraints:
+      - authRoles: ["admin", "user"]
+        securityCollections:
+          - name: Logged in resources
+            patterns: ["/profile"]
+      - authRoles: ["admin"]
+        securityCollections:
+          - name: Admin resources
+            patterns: ["/admin"]
